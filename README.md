@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# 준비
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```
+1. Node.js 설치
+-> 설치했는지 확인하는 방법: node -v
 
-## Available Scripts
+2. npm 설치 확인: npm -v (Node.js를 설치하면 자동으로 npm 설치)
+-> npm 업데이트 방법 : npm install -g npm
 
-In the project directory, you can run:
+3. npx 설치: npm install npx -g
 
-### `npm start`
+4. git 설치: https://git-scm.com/
+-> 버전 확인: git --version
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+5. React App 만들기: npx create-react-app 파일명
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+6. pacage.json 17 - 18 라인 삭제
+-> "test": "react-scripts test",
+   "eject": "react-scripts eject"
 
-### `npm test`
+7. yarn삭제 (yarn은 npm과 동일) 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+8. npm start
+```
 
-### `npm run build`
+# git에 등록하기
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+1. git init
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. github.con/new 접속 후 새로운 repository 생성
+- react app 과 동일한 이름으로 생성 ex) movie_app_practice
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. 새로 만든 repository url을 복사 후
+   git remote add origin 복사한 url
+   ex) git remote add origin https://github.com/jinyedo/movie_app_practice.git
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. 파일 변경시 업데이트하기
+git add .
+git commit -m "변경 이름"
+```
