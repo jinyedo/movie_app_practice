@@ -107,38 +107,40 @@ git push origin master
     export default App;
 ```
 
-## props 사용하기
+## array.map() 사용하여 배열 만들기
+```
+const food = ['kimchi', 'ramen', 'samgiopsal', 'chukumi', 'doncasu'];
 
+food.map(function(current) {
+return current + "♥";
+})
+
+=> ['kimchi♥', 'ramen♥', 'samgiopsal♥', 'chukumi♥', 'doncasu♥']
+```
+
+## props 사용하기
 ```
 - props는 동적 데이터이다.
 - props는 컴포넌트의 인자(argument)로 넘어간다.
 - Food 컴포넌트 사용시 props 속성을 모두 가져온다.
-
-function Food({ fav }) { 
-  return (
-    <h1>I like {fav}</h1>
-  );
-}
-
-function App() {
-  return (
-    <div>
-      <h1>Hello</h1>
-
-      /* props 사용하기  */
-      /* Food 컴포넌트로 정보를 보내려고 하면 react는 이 모든 속성을 가져온다. */
-      <Food fav="kimchi" />
-      <Food fav="ramen" />
-      <Food fav="samgiopsal" />
-      <Food fav="chukumi" />
-    </div>
-  );
-}
-
-[ 브라우저 화면 ]
-    Hello
-    I like kimchi
-    I like ramen
-    I like samgiopsal
-    I like chukumi
+- props는 각각 고유한 값을
 ```
+
+## props가 잘 넘어왔는지 확인하는 방법
+```
+1. props types 설치하기: npm i prop-types
+   prop-types는 내가 전달받은 props가 원하는 props인지 확인해 준다. 
+   ex) 프롭스 값을 잘못 보내거나 다른 파일에 있을 때 이것들을 확인해준다.
+
+2. 임폴트 하기: import PropTypes from 'prop-types';
+
+3. props가 올바른 값으로 넘어갔는지 확인
+Food.propTypes = {
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  
+  // isRequired를 삭제하면 값이 안들어가도 오류가 발생하지 않는다.
+  // isRequired가 없으면 필수값이 아니다.
+  rating: PropTypes.number
+}
+
