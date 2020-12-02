@@ -123,7 +123,7 @@ return current + "♥";
 - props는 동적 데이터이다.
 - props는 컴포넌트의 인자(argument)로 넘어간다.
 - Food 컴포넌트 사용시 props 속성을 모두 가져온다.
-- props는 각각 고유한 값을
+- props는 각각 고유한 값을 가져야한다.
 ```
 
 ## props가 잘 넘어왔는지 확인하는 방법
