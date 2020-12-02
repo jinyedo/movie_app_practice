@@ -67,3 +67,42 @@ git push origin master
 
     export default App;
 ```
+---
+# 노트
+
+## 컴포넌트 만들기
+```
+※ conponent는 HTML을 반환하는 함수이다.
+※ React Application은 한 번에 하나의 컴포넌트만 렌더링 할 수 있다.
+   -> 오류 - ReactDOM.render(<App /><Potato />, document.getElementById('root'));
+
+1. Potato.js 파일 만들기 (파일명은 자유)
+
+2. 기본구조 만들기
+
+    import React from 'react'
+
+    function Potato() {
+        return(
+            <h1>I Love Potato</h1>
+        );
+    }
+
+    export default Potato;
+
+3. 사용할 곳에 임포트후 사용하기 ex) App.js에 사용
+
+    import React from 'react';
+    import Potato from './Potato'; // import 하기
+
+    function App() {
+    return (
+        <div>
+        <h1>Hello</h1>
+        <Potato /> // 사용하기
+        </div>
+    );
+    }
+
+    export default App;
+```
