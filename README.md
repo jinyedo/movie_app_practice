@@ -40,3 +40,30 @@ git add .
 git commit -m "변경 이름"
 git push origin master
 ```
+
+# 불필요 파일 삭제하기
+
+```
+1. scr >
+    - App.js 
+    - index.js
+빼고 모두 삭제
+
+2. index.js 수정
+
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+    import App from './App';
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+
+3. App.js 수정
+
+    import React from 'react';
+
+    function App() {
+    return <div className="App" />;
+    }
+
+    export default App;
+```
