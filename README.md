@@ -106,3 +106,39 @@ git push origin master
 
     export default App;
 ```
+
+## props 사용하기
+
+```
+- props는 동적 데이터이다.
+- props는 컴포넌트의 인자(argument)로 넘어간다.
+- Food 컴포넌트 사용시 props 속성을 모두 가져온다.
+
+function Food({ fav }) { 
+  return (
+    <h1>I like {fav}</h1>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <h1>Hello</h1>
+
+      /* props 사용하기  */
+      /* Food 컴포넌트로 정보를 보내려고 하면 react는 이 모든 속성을 가져온다. */
+      <Food fav="kimchi" />
+      <Food fav="ramen" />
+      <Food fav="samgiopsal" />
+      <Food fav="chukumi" />
+    </div>
+  );
+}
+
+[ 브라우저 화면 ]
+    Hello
+    I like kimchi
+    I like ramen
+    I like samgiopsal
+    I like chukumi
+```
