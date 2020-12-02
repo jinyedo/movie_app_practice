@@ -38,4 +38,5 @@
 4. 파일 변경시 업데이트하기
 git add .
 git commit -m "변경 이름"
+git push origin master
 ```
