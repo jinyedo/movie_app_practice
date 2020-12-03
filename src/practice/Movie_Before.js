@@ -5,7 +5,7 @@ import "./Movie.css";
 // state가 필요하지 않은 경우 class형 컴포넌트는 필요없다.
 // 대신 function형 컴포넌트를 사용하면 된다.
 
-function Movie({ year, title, summary, poster, genres }) {
+function Movie_Before({ year, title, summary, poster, genres }) {
     return(
         <div className="movie">
             <img src={poster} alt={title} title={title} />
@@ -34,4 +34,4 @@ Movie.propTypes = {
     genres: PropTypes.arrayOf(PropTypes.string).isRequired // 장르
 }
 
-export default Movie;
+export default Movie_Before;

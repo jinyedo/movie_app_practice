@@ -212,6 +212,90 @@ state가 필요하지 않은 경우 class형 컴포넌트는 필요없다.
       this.getMovies();
 ```
 
+## 리액트 라우터(React Router) -> react-router-dom
+```
+새로운 페이지를 로드하지 않고 
+하나의 페이지 안에서 필요한 데이터만 가져오는 형태를 가집니다. 
+사용자가 회원가입 버튼을 눌렀을 때, 회원가입에 대한 데이터 자료를 렌더링하는 방식입니다.
+
+1. npm install react-router-dom
+
+2. import 하기 - import { HashRouter, Route } from 'react-router-dom';
+   (HashRouter 말고도 다른 라우터 들도 있다.)
+
+3. 사용하기
+ex)
+    Route에는 2가지 props가 필요
+    1. 렌더링할 스크린 = path
+    2. 어떤것을 할지 = component
+    <HashRouter>
+        // /about로 가면 {About}를 실행
+        <Route path="/about" component={About} />
+    </HashRouter>
+
+
+※주의사항 - React는 지나간 url을 모두 보여준다.
+
+- /about 로 접속시 "<h1>About</h1>" 만 보여주지만
+
+- /home/introduction로 접속하면 지나온 /home의 "<h1>Home</h1>" 와
+  /home/introduction의 "<h1>introduction</h1>이 겹쳐보인다.
+
+- /home 으로만 접속시 "<h1>Home</h1>" 만 보임
+
+    <HashRouter>
+        <Route path="/home"><h1>Home</h1></Route>
+
+        <Route path="/home/introduction"><h1>introduction</h1></Route>
+
+        <Route path="/about"><h1>About</h1></Route>
+    </HashRouter>
+
+[ 해결방법 ]
+exact={true} Props 추가하기
+- exact={true} 를 추가하면 오직 해당 url일때만 랜더링 해준다.
+
+    <HashRouter>
+        <Route path="/home" exact={true} ><h1>Home</h1></Route>
+
+        <Route path="/home/introduction"><h1>introduction</h1></Route>
+
+        <Route path="/about"><h1>About</h1></Route>
+    </HashRouter>
+
+```
+
+## Navigation 만들기
+```
+- <a> 태그로 만들면 클릭시마다 전체 페이지가 새로고침된다. (문제발생)
+ex) 
+    <a href='/'>Home</a>
+    <a href='/about'>About</a>
+
+
+- 그래서 <a> 태그 대신 Link 사용
+1. import 하기 - import { Link } from 'react-router-dom';
+
+2. 사용하기
+ex)
+    <Link to='/'>Home</Link>
+    <Link to='/about'>About</Link>
+
+※주의사항 - Router 밖에서 Link를 사용할 수 없다.
+ex)
+    <Navigation /> - 오류발생
+    <HashRouter>
+        // 여기에 있어야함
+        <Route path="/" exact={true} component={Home} />
+        <Route path="/about" component={About} />
+    </HashRouter>
+```
+
+## route props
+```
+- Router 안의 Route 들은 기본적으로 pops를 갖는다.
+```
+
 ## 만든 코드 cloud에 올리기
 ```
 1. ph-pages 다운로드: npm i gh-pages (만든 웹사이트를 gitnub의 github page 도메인에 나타나게 해준다.)
