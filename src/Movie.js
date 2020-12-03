@@ -12,14 +12,14 @@ function Movie({ year, title, summary, poster, genres }) {
             <div className="movie_data">
                 <h3 className="movie_title">{title}</h3>
                 <h5 className="movie_year">{year}</h5>
-                <ul className="movie-genres">
+                <ul className="movie_genres">
                     {genres.map((genre, index) => { // map을 사용할때 각각의 아이템에는 반드시 고유 key값이 있어야한다.
                         return (
                             <li key={index}>{genre}</li>
                         );
                     })}
                 </ul>
-                <p className="movie_summary">{summary}</p>
+                <p className="movie_summary">{summary.slice(0, 140)}...</p>
             </div>
         </div>
     );

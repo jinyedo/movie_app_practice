@@ -212,3 +212,70 @@ state가 필요하지 않은 경우 class형 컴포넌트는 필요없다.
       this.getMovies();
 ```
 
+## 만든 코드 cloud에 올리기
+```
+1. ph-pages 다운로드: npm i gh-pages (만든 웹사이트를 gitnub의 github page 도메인에 나타나게 해준다.)
+
+2. build 파일 다운로드 - rpm run build
+
+3. package.json 파일 수정
+
+    {
+    "name": "movie_app_practice",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.11.6",
+        "@testing-library/react": "^11.2.2",
+        "@testing-library/user-event": "^12.3.0",
+        "axios": "^0.21.0",
+        "gh-pages": "^3.1.0",
+        "prop-types": "^15.7.2",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-scripts": "4.0.1",
+        "web-vitals": "^0.2.4"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+
+        // 여기 2줄 추가
+        "deploy": "gh-pages -d build", 
+        "predeploy": "npm run build"
+
+    },
+    "eslintConfig": {
+        "extends": [
+        "react-app",
+        "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+        ],
+        "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+        ]
+    },
+    "homepage": "https://jinyedo.github.io/movie_app_practice/" // 여기 추가
+    }
+
+4. npm run deploy
+
+    deploy를 호출할때마다
+
+    npm은 predeploy를 먼저 호출시킨다. -> predeploy는 npm run build 를 실행
+    build는 build script를 호출 
+    script는 우리에게 folder(build) 를 준다. 그후 predeploy는 종료
+
+    그리고 나서 남은 deploy는 gh-pages를 호출하고
+    build 폴더를 업로드한다.
+
+5. 업데이트가 있을때 마다 npm run deploy를 실행
+```
