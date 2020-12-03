@@ -122,7 +122,7 @@ return current + "♥";
 ```
 - props는 동적 데이터이다.
 - props는 컴포넌트의 인자(argument)로 넘어간다.
-- Food 컴포넌트 사용시 props 속성을 모두 가져온다.
+- 컴포넌트 사용시 props 속성을 모두 가져온다.
 - props는 각각 고유한 값을 가져야한다.
 ```
 
@@ -143,4 +143,72 @@ Food.propTypes = {
   // isRequired가 없으면 필수값이 아니다.
   rating: PropTypes.number
 }
+```
+
+## state 사용하기
+```
+state가 필요하지 않은 경우 class형 컴포넌트는 필요없다.
+대신 function형 컴포넌트를 사용하면 된다.
+
+1. "props"는 동적 데이터를 다루지 못한다.
+
+2. "state"는 동적 데이터를 다룰 때 사용한다
+
+3. "state"를 사용하기 위해서는 클래스형 컴포넌트를 사용해야한다.
+
+4. "state"는 객체 형테의 데이터이다.
+
+5. 클래스형 컴포넌트가 될려면 리엑트가 제공하는 Component를 상속받아야 한다.
+   상속받은 후 컴포넌트가 JSX를 반환해야하는데 클래스 형태이기 때문에 반환을 할 수 없어 render()함수를 사용해 리턴한다.
+
+6. 리엑트는 render() 함수를 직접 실행시켜주기 때문에 우리가 실행하지 않아도 된다.
+
+7. "state"를 직접 변경할 수 없다: 원래 리엑트는 "state"가 변경되면 render()를 다시 실행하여 변경된 "state"를 화면에 보여주지만 
+                                 "state"를 직접 변경하면 render() 함수를 다시 실행해 주지 않음
+
+8. setState() 함수를 사용하면 "state"를 변경할 수 있고. 바뀐 "state"의 데이터만 업데이트한다.
+```
+
+## 컴포넌트 생명주기 - life cycle method
+```
+1. constructor() - 생성자 | 제일먼저 실행됨
+2. componentDidMount() - render() 다음으로 실행
+3. 실행순서: constructor() -> render() -> componentDidMount() 
+
+4. componentDidUpdate() - 화면 업데이트시 실행 
+5. componentWillMount() - 컴포넌트 종료시 실행
+```
+
+## Date fetch
+
+```
+[ JavaScript로 data fetch하기 - 비추 ]
+
+    // reder()이 실행된 다음 호출
+    componentDidMount() {
+        // 3초후 로딩 끝내기
+        setTimeout(() => {
+            this.setState({isLoading: false})
+        }, 3000);
+    }
+
+[ Axios로 data fetch하기 - 추천 ]
+
+- 우리는 https://yts.mx/api 를 사용할것이다.
+  -> 원래는 사이트 접속 후 List Movies의 https://yts.mx/api/v2/list_movies.json 를 사용해야하지만 불법사이트라 위치가 계속 변경됨
+  -> 그래서 https://yts.mx/api/v2/list_movies.json 를 사용한다.
+
+   [ 로딩방법 ]
+   1. npm install axios (axios 다운로드)
+   2. axios import - import axios from 'axios';
+   3. componentDidMount() 안에서 axios.get() 호출
+
+- 데이터 로딩시 시간이 필요하다면 async, await 키워드 사용
+   getMovies = "async" () => {
+      const movies = "await" axios.get('https://yts-proxy.now.sh/list_movies.json');
+   }
+
+   componentDidMount() { // 영화 데이터 로딩
+      this.getMovies();
+```
 
